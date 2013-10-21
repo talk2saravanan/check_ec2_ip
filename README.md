@@ -31,6 +31,17 @@ check_ec2_ip.pl syntax OK
 
 
         HELP
+
+	perl check_ec2_ip.pl [OPTIONS]
+	Options:
+	access_key				Access Key for Amazon Ec2 Instance
+	secret_key				Secret Key
+	security_group_name		specify security group name
+	region					region
+	ip_address				ip_address to check if it exists
+	debug					Optional.Enable debug mode
+	help					Optional.Print help information.
+
         e.g >perl check_ec2_ip.pl  --access_key="AKIAIFTWUCTKHN32JOEA"
                                          --secret_key="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"
                                          --security_group_name=default_saran2
