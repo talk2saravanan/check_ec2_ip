@@ -2,7 +2,7 @@ check_ec2_ip
 ===============
 Requirement:
 ------------
-A script that matches the given ip address from all rules of a Ec2 given security group  . For example I have a security group called "database-servers" that has many rules. We want to find the  ip address  "100.100.100.100" if it exists in  any rules.  Assume the user will be running it on the command line.
+A script that matches the given ip address from all rules of a given Ec2 security group  . For example I have a security group called "database-servers" that has many rules. We want to find the  ip address  "100.100.100.100" if it exists in  any rules.  Assume the user will be running it on the command line.
 
 STEPS TO FOLLOW:
 
