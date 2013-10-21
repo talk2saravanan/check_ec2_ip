@@ -73,11 +73,13 @@ my $ipec2 = IPEC2->new(-access_key => $access_key,
 
 
 if($ipec2->check_group($security_group_name)) {
-	print "Group $security_group_name is available\n";
+	print "Group $security_group_name is available:SUCCESS\n";
 }
 else {
-	print "Group $security_group_name is not available\n";
-	printd Dumper($ipec2);
+	print "Group $security_group_name is not available:FAILURE\n";
+	my @available_groups = $ipec2->get_all_group_names;
+	local $" = "\n";
+	printd "Available Groups: \n@available_groups \n";
 	exit;
 }
 
@@ -85,10 +87,10 @@ else {
 if($ip=~/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/ &&(($1<=255  && $2<=255 && $3<=255  &&$4<=255 )))
 {
 	if($ipec2->find_ip($ip) ) {
-		print "IP $ip is available\n";
+		print "IP $ip is available:SUCCESS\n";
 	}
 	else {
-		print "IP $ip is not available\n";
+		print "IP $ip is not available:FAILURE\n";
 	}
 }
 else {
