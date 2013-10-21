@@ -1,44 +1,36 @@
 check_ec2_ip
 ===============
+Requirement
+A script that matches ip from all rules a security group for EC2 . For example I have a security group called "database-servers" that have many rules. We want all rules if it has the  source "100.100.100.100" .  Assume the user will be running it on the command line.
 
+STEPS TO FOLLOW:
 
-  ***Please install "VM::EC2" for the first time.***
-	   $>perl -MCPAN -e "install VM::EC2"
-	   
-	   During installation.There will be a prompt to enter "access_key" and "secret_key".
-	   Please press enter to skip it.
+1)	Please install "VM::EC2" for the first time.
+	$>perl -MCPAN -e "install VM::EC2"
 
 	Reference : http://search.cpan.org/~lds/VM-EC2-1.23/lib/VM/EC2/SecurityGroup.pm
 
-	
-	e.g >perl check_ec2_ip.pl  --access_key="AKIAIFTWUCTKHN32JOEA" 
-							  --secret_key="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" 
-							  --security_group_name=default_saran2
-							  --region=us-east-1
-							  --ip_address=192.188.2.1/24
+2)Create Amazon AWS account . Note down your access_key , secret_key,region,security_group_name,etc
+
+3) Note the ip address you want to find
+
+4)sync the git repository --> https://github.com/talk2saravanan/check_ec2_ip
+
+5)Do Compilation check 
+$>perl -wc check_ec2_ip.pl
+check_ec2_ip.pl syntax OK
 
 
-D:\saran\perl>perl check_ec2_ip.pl --help
+6) Use command line help
+    perl check_ec2_ip.pl --help
 
-        	Please install "VM::EC2" for the first time.
-	        $>perl -MCPAN -e "install VM::EC2"
-
-
+        Please install "VM::EC2" for the first time.
+        $>perl -MCPAN -e "install VM::EC2"
 
         Reference : http://search.cpan.org/~lds/VM-EC2-1.23/lib/VM/EC2/SecurityGroup.pm
 
-	HELP 
-	perl check_ec2_ip.pl [OPTIONS]
-	Options:
-	access_key				Access Key for Amazon Ec2 Instance
-	secret_key				Secret Key
-	security_group_name			specify security group name
-	region					region
-	ip_address				ip_address to check if it exists
-	debug					Optional.Enable debug mode
-	help					Optional.Print help information.
 
-
+        HELP
         e.g >perl check_ec2_ip.pl  --access_key="AKIAIFTWUCTKHN32JOEA"
                                          --secret_key="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"
                                          --security_group_name=default_saran2
@@ -47,15 +39,19 @@ D:\saran\perl>perl check_ec2_ip.pl --help
 
 
 
+7)Execute the command by passing your access_key,secret_key,
 $>perl check_ec2_ip.pl --access_key="AKIAIFTWUCTKHN32JOEA" --secret_
 key="bfZ0fS0vrcg1i6dORTJ8uEasdxtXVxbAMkWD3Qj0" --security_group_name=default_sar
 an2 -region=us-east-1 --ip_address=192.168.1.0 
+
+8) Check the Output
+    It is expected to get output something like this
+	
 Group default_saran2 is available:SUCCESS
 IP 192.168.1.0 is available:SUCCESS
 
-Debug mode
-
-D:\saran\perl>perl check_ec2_ip.pl --access_key="AKIAIFTWUCTKHN32JOEA" --secret_
+9) Else enable debug mode
+$>perl check_ec2_ip.pl --access_key="AKIAIFTWUCTKHN32JOEA" --secret_
 key="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" --security_group_name=default_sara2
  -region=us-east-1 --ip_address=192.168.1.0 --debug
 Group default_sara2 is not available:FAILURE
@@ -81,4 +77,6 @@ default_test
 default_saran1
 default
 Test
+
+10) I have tested it in live 
 
