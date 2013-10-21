@@ -1,7 +1,7 @@
 check_ec2_ip
 ===============
 Requirement
-A script that matches ip from all rules a security group for EC2 . For example I have a security group called "database-servers" that have many rules. We want all rules if it has the  source "100.100.100.100" .  Assume the user will be running it on the command line.
+A script that matches ip from all rules from a security group for EC2 . For example I have a security group called "database-servers" that have many rules. We want all rules if it has the  source "100.100.100.100" .  Assume the user will be running it on the command line.
 
 STEPS TO FOLLOW:
 
